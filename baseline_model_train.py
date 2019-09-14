@@ -59,6 +59,8 @@ def run_test_harness():
 	print('> %.3f' % (acc * 100.0))
 	# learning curves
 	summarize_diagnostics(history)
+    #save model
+    model.save('cnn-one.h5')
  
 # entry point, run the test harness
 run_test_harness()
