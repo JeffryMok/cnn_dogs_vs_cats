@@ -59,13 +59,13 @@ def run_test_harness():
 		class_mode='binary', batch_size=64, target_size=(200, 200))
 	# fit model
 	history = model.fit_generator(train_it, steps_per_epoch=len(train_it),
-		validation_data=test_it, validation_steps=len(test_it), epochs=50, verbose=0)
+		validation_data=test_it, validation_steps=len(test_it), epochs=10, verbose=0)
 	# evaluate model
 	_, acc = model.evaluate_generator(test_it, steps=len(test_it), verbose=0)
 	print('> %.3f' % (acc * 100.0))
 	# learning curves
 	summarize_diagnostics(history)
-    model.save('base_model.h5')
+    model.save('base_model_epoch_10.h5')
  
 # entry point, run the test harness
 run_test_harness()
